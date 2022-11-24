@@ -95,7 +95,7 @@ const Navbar = () => {
             width="32"
             height="32"
           />
-          Doctors Portal
+          Laptop Zone
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
