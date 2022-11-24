@@ -5,17 +5,17 @@ import png from "../../assets/icon/resale.png";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
-  const { SignOut, user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  //   const { SignOut, user } = useContext(AuthContext);
+  //   const navigate = useNavigate();
 
-  const handleLogOut = () => {
-    SignOut()
-      .then(() => {
-        toast.success("Successfully loged out");
-        navigate("/login");
-      })
-      .catch((error) => console.error(error));
-  };
+  //   const handleLogOut = () => {
+  //     SignOut()
+  //       .then(() => {
+  //         toast.success("Successfully loged out");
+  //         navigate("/login");
+  //       })
+  //       .catch((error) => console.error(error));
+  //   };
   const menuItems = (
     <React.Fragment>
       <li>
@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link to="/about">About</Link>
       </li>
 
-      {user?.uid ? (
+      {/* {user?.uid ? (
         <>
           <li>
             <Link to="/dashboard">Dashboard</Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
             <Link to="/signup">Sign up</Link>
           </li>
         </>
-      )}
+      )} */}
     </React.Fragment>
   );
 
