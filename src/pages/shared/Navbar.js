@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import png from "../../assets/icon/resale.png";
 import { AuthContext } from "../../context/AuthProvider";
+import { Icon } from "@iconify/react";
 
 const Navbar = () => {
   //   const { SignOut, user } = useContext(AuthContext);
@@ -57,7 +58,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-[#149777]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost rounded-md lg:hidden">
@@ -83,13 +84,22 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost rounded-md normal-case text-xl">
-          <img src={png} alt="" className="w-10 mr-3" />
+        <Link
+          to="/"
+          className="btn btn-ghost text-[#EEE] rounded-md normal-case text-xl"
+        >
+          <Icon
+            className="mr-2"
+            icon="ic:outline-laptop-mac"
+            color="white"
+            width="32"
+            height="32"
+          />
           Doctors Portal
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+        <ul className="menu menu-horizontal p-0 text-[#EEE]">{menuItems}</ul>
       </div>
       <label
         htmlFor="dashboard-drawer"
