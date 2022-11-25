@@ -18,7 +18,7 @@ const Category = () => {
       <div className="lg:flex justify-center mx-auto sm:py-14 lg:py-20 animate__animated animate__fadeIn">
         {categories.map((category) => (
           <div key={category._id}>
-            <Link>
+            <Link to={`/products/${category.category_id}`}>
               <div className="card w-80 h-64 my-5 mx-auto  mr-10 bg-base-100 shadow-2xl image-full hover:bg-slate-400">
                 <figure>
                   <img src={category.img} alt="" className="" />
