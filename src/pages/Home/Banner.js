@@ -23,7 +23,7 @@ const Banner = () => {
               rel="noreferrer noopener"
               className="btn btn-primary"
             >
-              Shop Now
+              Buy Now
             </Link>
           </div>
         </div>

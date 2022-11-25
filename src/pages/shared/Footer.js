@@ -27,8 +27,8 @@ const Footer = () => {
               </span>
             </Link>
             <p className="px-5 lg:pr-10">
-              A second hand laptop shop. The best shop for second hand laptop in
-              Bangladesh.
+              A second hand laptop online shop. The best shop for second hand
+              laptop in Bangladesh.
             </p>
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
