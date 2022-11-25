@@ -4,7 +4,7 @@ const BlogDetails = ({ question }) => {
   const { img, question: ques, answer } = question;
   return (
     <div>
-      <div className="card w-96 bg-[#BCE1F9] shadow-xl my-10 mx-auto">
+      <div className="card w-72 h-96 bg-[#BCE1F9] shadow-xl my-10 mx-auto">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>

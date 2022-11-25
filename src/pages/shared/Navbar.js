@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import png from "../../assets/icon/resale.png";
+
 import { AuthContext } from "../../context/AuthProvider";
 import { Icon } from "@iconify/react";
 
@@ -97,7 +97,7 @@ const Navbar = () => {
           <Icon
             className="mr-2"
             icon="ic:outline-laptop-mac"
-            color="white"
+            color="#EEE"
             width="32"
             height="32"
           />

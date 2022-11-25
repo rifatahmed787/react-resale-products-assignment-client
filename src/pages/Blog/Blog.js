@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import TitleHook from "../../Hooks/TitleHook";
 import Loading from "../shared/Loading";
 import BlogDetails from "./BlogDetails";
 
@@ -12,11 +13,14 @@ const Blog = () => {
       return data;
     },
   });
+
+  TitleHook("Blog");
+
   if (isLoading) {
     <Loading></Loading>;
   }
   return (
-    <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
+    <div className="grid lg:grid-cols-4 sm:grid-cols-1 ">
       {questions.map((question) => (
         <BlogDetails key={question._id} question={question}></BlogDetails>
       ))}
