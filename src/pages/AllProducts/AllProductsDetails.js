@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryButton from "../../components/PrimaryButton";
 
-const AllProductsDetails = ({ product }) => {
+const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
     img,
     name,
@@ -32,7 +32,14 @@ const AllProductsDetails = ({ product }) => {
             <p>Mobile: {mobile}</p>
             <p>Condition: {condition}</p>
           </div>
-          <PrimaryButton>Book Now</PrimaryButton>
+          <label
+            htmlFor="booking-modal"
+            className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
+            onClick={() => setServiceModal(product)}
+          >
+            Book Now
+          </label>
+          {/* <PrimaryButton>Book Now</PrimaryButton> */}
         </div>
       </div>
     </div>

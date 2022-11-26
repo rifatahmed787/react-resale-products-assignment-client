@@ -101,7 +101,7 @@ const Navbar = () => {
             width="32"
             height="32"
           />
-          Laptop Zone
+          Laptop Resale
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">

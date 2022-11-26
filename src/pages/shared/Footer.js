@@ -23,7 +23,7 @@ const Footer = () => {
                 />
               </div>
               <span className="self-center text-2xl font-semibold">
-                Laptop Zone
+                Laptop Resale
               </span>
             </Link>
             <p className="px-5 lg:pr-10">
@@ -149,7 +149,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between px-32">
           <div className="py-6 text-sm  dark:text-gray-400">
-            Copyright © 2022 - All right reserved by Laptop Zone
+            Copyright © 2022 - All right reserved by Laptop Resale
           </div>
           <div className="flex items-center">
             <Icon
@@ -159,7 +159,7 @@ const Footer = () => {
               width="32"
               height="32"
             />
-            <h3 className="text-xl font-bold py-6">Laptop Zone</h3>
+            <h3 className="text-xl font-bold py-6">Laptop Resale</h3>
           </div>
         </div>
       </footer>
