@@ -3,18 +3,18 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-// import useToken from "../../Hooks/useToken";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
-  const { SignUp, updateUser } = useContext(AuthContext);
+  const { SignUp, updateUser, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
-  //   const [token] = useToken(createdUserEmail);
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
 
-  //   if (token) {
-  //     navigate("/");
-  //   }
+  if (token) {
+    navigate("/");
+  }
 
   const {
     register,
@@ -35,7 +35,7 @@ const SignUp = () => {
 
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name, data.email);
+            saveUser(data.name, data.email, data.type);
           })
           .catch((error) => console.error(error));
       })
@@ -46,8 +46,8 @@ const SignUp = () => {
     console.log(data);
   };
 
-  const saveUser = (name, email) => {
-    const user = { name, email };
+  const saveUser = (name, email, type) => {
+    const user = { name, email, type };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -58,6 +58,36 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         setCreatedUserEmail(email);
+      });
+  };
+
+  //google sign up
+  const handleGoogleSignUp = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Successfully signed up");
+        googleUser(user.displayName, user.email);
+      })
+      .catch((error) => console.error(error));
+  };
+  const googleUser = (name, email) => {
+    const googleUser = {
+      name,
+      email,
+      type: "Buyer",
+    };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(googleUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
       });
   };
 
@@ -75,6 +105,21 @@ const SignUp = () => {
               {...register("name")}
               className="input input-bordered w-full max-w-xs"
             />
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Type</span>
+            </label>
+            <select
+              {...register("type")}
+              className="select select-bordered w-full max-w-xs"
+            >
+              <option disabled selected>
+                Select Type
+              </option>
+              <option>Buyer</option>
+              <option>Seller</option>
+            </select>
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -132,7 +177,9 @@ const SignUp = () => {
           </Link>
         </p>
         <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
+        <button onClick={handleGoogleSignUp} className="btn btn-outline w-full">
+          CONTINUE WITH GOOGLE
+        </button>
       </div>
     </div>
   );

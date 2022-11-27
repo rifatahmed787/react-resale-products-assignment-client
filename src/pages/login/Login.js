@@ -89,13 +89,11 @@ const Login = () => {
           <div>{setError && <p className="text-red-600">{error}</p>}</div>
         </form>
         <p className="mt-5">
-          New to Doctors Portal{" "}
+          New to Laptop Resale{" "}
           <Link className="text-primary" to="/signup">
             Create a new account
           </Link>
         </p>
-        <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
       </div>
     </div>
   );

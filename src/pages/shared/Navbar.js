@@ -6,42 +6,37 @@ import { AuthContext } from "../../context/AuthProvider";
 import { Icon } from "@iconify/react";
 
 const Navbar = () => {
-  //   const { SignOut, user } = useContext(AuthContext);
-  //   const navigate = useNavigate();
+  const { SignOut, user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  //   const handleLogOut = () => {
-  //     SignOut()
-  //       .then(() => {
-  //         toast.success("Successfully loged out");
-  //         navigate("/login");
-  //       })
-  //       .catch((error) => console.error(error));
-  //   };
+  const handleLogOut = () => {
+    SignOut()
+      .then(() => {
+        toast.success("Successfully loged out");
+        navigate("/login");
+      })
+      .catch((error) => console.error(error));
+  };
+
   const menuItems = (
     <React.Fragment>
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/appointment">Appointment</Link>
-      </li>
-      <li>
         <Link to="/blog">Blog</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/login">Log in</Link>
       </li>
       <li>
         <Link to="/signup">Sign up</Link>
-      </li>
+      </li> */}
 
-      {/* {user?.uid ? (
+      {user?.uid ? (
         <>
           <li>
             <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/reviews">Reviews</Link>
           </li>
           <li
             className="btn btn-ghost normal-case text-base flex items-center"
@@ -59,7 +54,7 @@ const Navbar = () => {
             <Link to="/signup">Sign up</Link>
           </li>
         </>
-      )} */}
+      )}
     </React.Fragment>
   );
 

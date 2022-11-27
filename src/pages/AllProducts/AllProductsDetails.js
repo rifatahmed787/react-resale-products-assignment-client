@@ -1,5 +1,4 @@
 import React from "react";
-import PrimaryButton from "../../components/PrimaryButton";
 
 const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
@@ -39,7 +38,6 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
           >
             Book Now
           </label>
-          {/* <PrimaryButton>Book Now</PrimaryButton> */}
         </div>
       </div>
     </div>
