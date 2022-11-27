@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -26,6 +28,7 @@ const AddProduct = () => {
         if (imgData.success) {
           const products = {
             img: imgData.data.url,
+            sellerName: data.sellerName,
             name: data.name,
             location: data.location,
             originalPrice: data.originalPrice,
@@ -47,7 +50,7 @@ const AddProduct = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success("Product added successfully");
-                // navigate("/dashboard/managedoctors");
+                // navigate(`/products/${category.category_id}`);
               }
             });
         }
@@ -58,6 +61,16 @@ const AddProduct = () => {
     <div className="w-96 p-7 shadow-lg rounded-md mx-auto my-20">
       <h2 className="text-3xl mb-6 ml-3">Add a Product</h2>
       <form onSubmit={handleSubmit(handleAddProduct)}>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Seller Name</span>
+          </label>
+          <input
+            type="text"
+            {...register("sellerName")}
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Product Name</span>

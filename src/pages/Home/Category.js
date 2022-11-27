@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "animate.css";
+import { AuthContext } from "../../context/AuthProvider";
+import Loading from "../shared/Loading";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
+  const { loading } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
       <h3 className="text-xl font-bold mt-5 sm:ml-3 lg:pl-10">

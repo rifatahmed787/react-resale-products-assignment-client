@@ -3,6 +3,7 @@ import React from "react";
 const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
     img,
+    sellerName,
     name,
     location,
     originalPrice,
@@ -10,7 +11,6 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
     purchaseYear,
     postedDate,
     mobile,
-    condition,
   } = product;
   return (
     <div>
@@ -22,14 +22,18 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
-            <p className="dark:text-gray-100">{location}</p>
+            <h1 className="text-2xl font-semibold tracking-wide">
+              Seller: {sellerName}
+            </h1>
+            <h2 className="text-xl font-semibold tracking-wide">
+              Product: {name}
+            </h2>
+            <p className="dark:text-gray-100">Location: {location}</p>
             <p>Original Price:{originalPrice}</p>
             <p>Resale Price: {resalePrice}</p>
             <p>Year of purchase: {purchaseYear}</p>
             <p>Post Date: {postedDate}</p>
             <p>Mobile: {mobile}</p>
-            <p>Condition: {condition}</p>
           </div>
           <label
             htmlFor="booking-modal"
