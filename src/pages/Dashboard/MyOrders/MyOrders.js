@@ -13,7 +13,11 @@ const MyOrders = () => {
       return data;
     },
   });
-  return <div></div>;
+  return (
+    <div>
+      {bookings.length > 0 && bookings.map((booking) => console.log(booking))}
+    </div>
+  );
 };
 
 export default MyOrders;

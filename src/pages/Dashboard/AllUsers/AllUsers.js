@@ -1,12 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import toast from "react-hot-toast";
 
 const AllUsers = () => {
-  const {
-    data: users = [],
-    refetch,
-    isLoading,
-  } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/users");
@@ -14,9 +11,36 @@ const AllUsers = () => {
       return data;
     },
   });
+
+  const handleMakeAdmin = (id) => {
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Admin made successfully");
+          refetch();
+        }
+      });
+  };
+
+  const handleDelete = (user) => {
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success("User deleted successfully");
+        }
+      });
+  };
+
   return (
     <div>
-      <h3 className="text-3xl mb-6 ml-3">All Users</h3>
+      <h3 className="text-3xl mb-6 mt-5 ml-3">All Users</h3>
       <div className="overflow-x-auto mx-3">
         <table className="table w-full">
           <thead>
@@ -37,7 +61,7 @@ const AllUsers = () => {
                 <td>
                   {user?.role !== "admin" && (
                     <button
-                      // onClick={() => handleMakeAdmin(user._id)}
+                      onClick={() => handleMakeAdmin(user._id)}
                       className="btn btn-xs btn-primary"
                     >
                       Make Admin
@@ -45,7 +69,12 @@ const AllUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-xs btn-danger">Delete</button>
+                  <button
+                    onClick={() => handleDelete(user)}
+                    className="btn btn-xs btn-danger"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
