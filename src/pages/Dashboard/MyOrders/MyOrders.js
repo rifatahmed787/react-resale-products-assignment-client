@@ -9,7 +9,7 @@ const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [deletingOrder, setDeletingOrder] = useState(null);
 
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `https://react-assignment-resale-products-server.vercel.app/booking?email=${user?.email}`;
   const {
     data: bookings = [],
     isLoading,
@@ -30,12 +30,15 @@ const MyOrders = () => {
 
   //handle delete order
   const handleDeleteOrder = (order) => {
-    fetch(`http://localhost:5000/booking/${order._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://react-assignment-resale-products-server.vercel.app/booking/${order._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

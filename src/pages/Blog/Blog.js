@@ -10,7 +10,9 @@ const Blog = () => {
   const { data: questions = [], isLoading } = useQuery({
     queryKey: ["questions"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/questions");
+      const res = await fetch(
+        "https://react-assignment-resale-products-server.vercel.app/questions"
+      );
       const data = await res.json();
       return data;
     },

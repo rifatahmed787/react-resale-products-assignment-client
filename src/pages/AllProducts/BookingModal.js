@@ -24,13 +24,16 @@ const BookingModal = ({ serviceModal, setServiceModal }) => {
       email,
       phone,
     };
-    fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(BooikingData),
-    })
+    fetch(
+      "https://react-assignment-resale-products-server.vercel.app/booking",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(BooikingData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

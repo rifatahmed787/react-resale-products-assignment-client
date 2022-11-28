@@ -39,14 +39,17 @@ const AddProduct = () => {
             category_id: data.category_id,
           };
           console.log(products);
-          fetch("http://localhost:5000/products", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(products),
-          })
+          fetch(
+            "https://react-assignment-resale-products-server.vercel.app/products",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(products),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged) {

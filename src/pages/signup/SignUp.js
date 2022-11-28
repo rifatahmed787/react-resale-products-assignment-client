@@ -48,7 +48,7 @@ const SignUp = () => {
 
   const saveUser = (name, email, type) => {
     const user = { name, email, type };
-    fetch("http://localhost:5000/users", {
+    fetch("https://react-assignment-resale-products-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -78,7 +78,7 @@ const SignUp = () => {
       email,
       type: "Buyer",
     };
-    fetch("http://localhost:5000/users", {
+    fetch("https://react-assignment-resale-products-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
