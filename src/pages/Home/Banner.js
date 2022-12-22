@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import img1 from "../../assets/image/img1.jpg";
 import img2 from "../../assets/image/img2.jpg";
 import img3 from "../../assets/image/img3.jpg";
+import "./Category.css";
 
 const Banner = () => {
   return (
@@ -13,10 +14,10 @@ const Banner = () => {
             <h2 className="text-center text-6xl tracking-tighter font-bold">
               Up to <br /> 10% discount
             </h2>
-            <div className="space-x-2  text-center py-2 lg:py-0 lg:flex">
-              <img src={img1} alt="" className="w-40 ml-2" />
-              <img src={img2} alt="" className="w-40 " />
-              <img src={img3} alt="" className="w-40" />
+            <div className="space-x-2  text-center py-2 lg:py-0 lg:flex margin-bottom">
+              <img src={img1} alt="" className="w-40 ml-2 margin-bottom" />
+              <img src={img2} alt="" className="w-40 margin-bottom" />
+              <img src={img3} alt="" className="w-40 " />
             </div>
             <Link
               href="#"

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -147,11 +148,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between px-32">
-          <div className="py-6 text-sm  dark:text-gray-400">
+        <div className="flex justify-between lg:px-32">
+          <div className="py-6 text-sm  dark:text-gray-400 sm:mr-16">
             Copyright © 2022 - All right reserved by Laptop Resale
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center display-hidden">
             <Icon
               className="mr-2"
               icon="ic:outline-laptop-mac"
@@ -159,7 +160,7 @@ const Footer = () => {
               width="32"
               height="32"
             />
-            <h3 className="text-xl font-bold py-6">Laptop Resale</h3>
+            <h3 className="text-xl font-bold py-6 ">Laptop Resale</h3>
           </div>
         </div>
       </footer>
