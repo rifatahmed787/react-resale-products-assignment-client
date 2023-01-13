@@ -1,13 +1,28 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../../context/AuthProvider";
 import { Icon } from "@iconify/react";
+import { useState } from "react";
+import { useEffect } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { SignOut, user } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const themeToggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleLogOut = () => {
     SignOut()
@@ -39,7 +54,7 @@ const Navbar = () => {
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li
-            className="btn btn-ghost normal-case text-base flex items-center"
+            className="btn btn-ghost normal-case text-base flex items-center navber-left"
             onClick={handleLogOut}
           >
             Log out
@@ -83,6 +98,15 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menuItems}
+            <div className="pl-3">
+              <button onClick={themeToggle}>
+                {theme === "light" ? (
+                  <Icon icon="mingcute:sun-line" width="32" />
+                ) : (
+                  <Icon icon="ph:moon-fill" width="32" />
+                )}
+              </button>
+            </div>
           </ul>
         </div>
         <Link
@@ -101,7 +125,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 text-[#EEE]">{menuItems}</ul>
+        <div className="flex items-center mr-5">
+          <button onClick={themeToggle}>
+            {theme === "light" ? (
+              <Icon icon="mingcute:sun-line" width="32" />
+            ) : (
+              <Icon icon="ph:moon-fill" width="32" />
+            )}
+          </button>
+        </div>
       </div>
+
       <label
         htmlFor="dashboard-drawer"
         tabIndex={0}
