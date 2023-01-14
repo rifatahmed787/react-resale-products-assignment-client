@@ -1,15 +1,15 @@
 import React from "react";
 
 const BlogDetails = ({ question, setBlogModal }) => {
-  const { img, question: ques, answer } = question;
+  const { img, question: ques } = question;
   return (
     <div>
-      <div className="card w-72 h-96 bg-[#BCE1F9] shadow-xl my-10 mx-auto">
+      <div className="card w-72 h-96 bg-[#BCE1F9] dark:bg-black dark:border shadow-xl my-10 mx-auto">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <p>{ques}</p>
+          <p className="dark:text-white">{ques}</p>
           <div className="card-actions ">
             <label
               htmlFor="blogDetails"

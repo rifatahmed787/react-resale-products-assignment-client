@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useToken from "../../Hooks/useToken";
 // import useToken from "../../Hooks/useToken";
+import "./Login.css";
 
 const Login = () => {
   const { SignIn } = useContext(AuthContext);
@@ -41,18 +42,18 @@ const Login = () => {
       });
   };
   return (
-    <div className="h-[800px] flex justify-center items-center">
-      <div className="w-96 p-7 shadow-lg rounded-md">
-        <h2 className="text-xl text-center">Log in</h2>
+    <div className="h-[600px] flex justify-center items-center">
+      <div className="w-96 small-width bg-[#FCD800] dark:bg-black dark:border p-7 shadow-lg rounded-md">
+        <h2 className="text-xl text-center dark:text-white">Log in</h2>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text dark:text-white">Email</span>
             </label>
             <input
               type="Email"
               {...register("email", { required: "Email Address is required" })}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             />
             {errors.email && (
               <p className="text-red-600" role="alert">
@@ -62,7 +63,7 @@ const Login = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text dark:text-white">Password</span>
             </label>
             <input
               type="password"
@@ -73,10 +74,12 @@ const Login = () => {
                   message: "Password must be at least 6 characters or more",
                 },
               })}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             />
             <label className="label">
-              <span className="label-text">Forget Password?</span>
+              <span className="label-text dark:text-white">
+                Forget Password?
+              </span>
             </label>
             {errors.password && (
               <p className="text-red-600" role="alert">
@@ -91,9 +94,9 @@ const Login = () => {
           />
           <div>{setError && <p className="text-red-600">{error}</p>}</div>
         </form>
-        <p className="mt-5">
+        <p className="mt-5 dark:text-white">
           New to Laptop Resale{" "}
-          <Link className="text-primary" to="/signup">
+          <Link className="text-black dark:text-primary link" to="/signup">
             Create a new account
           </Link>
         </p>

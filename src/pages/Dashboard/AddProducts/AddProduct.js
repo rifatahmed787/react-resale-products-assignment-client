@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import "./AddProducts.css";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -62,97 +63,99 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="w-96 p-7 shadow-lg rounded-md mx-auto my-20">
-      <h2 className="text-3xl mb-6 ml-3">Add a Product</h2>
+    <div className="w-96 small-width p-7 shadow-lg rounded-md mx-auto bg-[#FCD800] dark:bg-black my-20">
+      <h2 className="text-3xl mb-6 ml-3 text-center dark:text-white">
+        Add Product
+      </h2>
       <form onSubmit={handleSubmit(handleAddProduct)}>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Seller Name</span>
+            <span className="label-text dark:text-white">Seller Name</span>
           </label>
           <input
             type="text"
             {...register("sellerName")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Product Name</span>
+            <span className="label-text dark:text-white">Product Name</span>
           </label>
           <input
             type="text"
             {...register("name")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Location</span>
+            <span className="label-text dark:text-white">Location</span>
           </label>
           <input
             type="text"
             {...register("location")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Original Price</span>
+            <span className="label-text dark:text-white">Original Price</span>
           </label>
           <input
             type="text"
             {...register("originalPrice")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Resale Price</span>
+            <span className="label-text dark:text-white">Resale Price</span>
           </label>
           <input
             type="text"
             {...register("resalePrice")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Purchase year</span>
+            <span className="label-text dark:text-white">Purchase year</span>
           </label>
           <input
             type="text"
             {...register("purchaseYear")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Post Date</span>
+            <span className="label-text dark:text-white">Post Date</span>
           </label>
           <input
             type="text"
             {...register("postedDate")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Mobile number</span>
+            <span className="label-text dark:text-white">Mobile number</span>
           </label>
           <input
             type="text"
             {...register("mobile")}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Category</span>
+            <span className="label-text dark:text-white">Category</span>
           </label>
           <select
             {...register("category_id")}
-            className="select select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           >
             <option disabled selected>
               Select category
@@ -165,12 +168,12 @@ const AddProduct = () => {
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Attachment</span>
+            <span className="label-text dark:text-white">Attachment</span>
           </label>
           <input
             type="file"
             {...register("image", { required: "Image is required" })}
-            className="px-3 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
+            className="px-3 py-12 border-2 border-dashed border-black rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
           />
           {errors.email && (
             <p className="text-red-600" role="alert">
@@ -180,7 +183,7 @@ const AddProduct = () => {
         </div>
 
         <input
-          className="btn btn-accent w-full mt-5"
+          className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
           value="Add Product"
           type="submit"
         />

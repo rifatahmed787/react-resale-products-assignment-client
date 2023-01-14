@@ -41,12 +41,6 @@ const Navbar = () => {
       <li>
         <Link to="/blog">Blog</Link>
       </li>
-      {/* <li>
-        <Link to="/login">Log in</Link>
-      </li>
-      <li>
-        <Link to="/signup">Sign up</Link>
-      </li> */}
 
       {user?.uid ? (
         <>
@@ -74,10 +68,13 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#149777]">
+    <div className="navbar bg-[#149777] dark:bg-[#08221c]">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost rounded-md lg:hidden">
+          <label
+            tabIndex={0}
+            className="btn btn-ghost rounded-md lg:hidden dark:text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -95,15 +92,15 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 dark:bg-[#149777] dark:text-white"
           >
             {menuItems}
-            <div className="pl-3">
+            <div className="pl-3 ">
               <button onClick={themeToggle}>
                 {theme === "light" ? (
                   <Icon icon="mingcute:sun-line" width="32" />
                 ) : (
-                  <Icon icon="ph:moon-fill" width="32" />
+                  <Icon icon="ph:moon-fill" width="32" className="text-black" />
                 )}
               </button>
             </div>
@@ -128,20 +125,22 @@ const Navbar = () => {
         <div className="flex items-center mr-5">
           <button onClick={themeToggle}>
             {theme === "light" ? (
-              <Icon icon="mingcute:sun-line" width="32" />
+              <Icon
+                icon="mingcute:sun-line"
+                width="32"
+                className="text-white"
+              />
             ) : (
-              <Icon icon="ph:moon-fill" width="32" />
+              <Icon icon="ph:moon-fill" width="32" className="text-gray-500" />
             )}
           </button>
         </div>
       </div>
-
       <label
         htmlFor="dashboard-drawer"
-        tabIndex={0}
-        className="btn btn-ghost btn-xs ml-20 rounded-md lg:hidden"
+        className="btn btn-primary drawer-button btn-xs ml-20 rounded-md lg:hidden dark:text-white"
       >
-        Open Drawer
+        Open drawer
       </label>
     </div>
   );

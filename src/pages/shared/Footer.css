@@ -1,5 +1,8 @@
 @media only screen and (max-width: 648px) {
-  .display-hidden{
+  .input-width{
+    width: 17rem;
+  }
+  .display-item{
     display: none;
   }
 }

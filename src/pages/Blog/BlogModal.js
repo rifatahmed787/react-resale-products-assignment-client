@@ -5,10 +5,12 @@ const BlogModal = ({ blogModal, setBlogModal }) => {
   return (
     <div>
       <input type="checkbox" id="blogDetails" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">Here is your answer:</h3>
-          <p className="py-4">{answer}</p>
+      <div className="modal ">
+        <div className="modal-box w-11/12 max-w-5xl dark:bg-black">
+          <h3 className="font-bold text-lg dark:text-white">
+            Here is your answer:
+          </h3>
+          <p className="py-4 dark:text-white">{answer}</p>
           <div className="modal-action">
             <label htmlFor="blogDetails" className="btn">
               Got it

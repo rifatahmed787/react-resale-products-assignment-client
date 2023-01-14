@@ -8,8 +8,8 @@ import "./Category.css";
 
 const Delivery = () => {
   return (
-    <div className="p-6 py-12 dark:bg-violet-400 shadow-lg rounded-lg lg:mx-20  dark:text-gray-900">
-      <div className="container mx-auto">
+    <div className="p-6 py-12 card-width dark:bg-black shadow-lg rounded-lg lg:mx-20 md:mx-16   dark:text-white dark:border">
+      <div className="container mx-auto ">
         <div className="lg:flex flex-col lg:flex-row items-center  justify-around">
           <div className="lg:flex items-center">
             <div>
@@ -19,7 +19,7 @@ const Delivery = () => {
               <h2 className="text-2xl font-bold">
                 Get items delivered on free
               </h2>
-              <p className="w-96 text-width">
+              <p className="lg:w-96 md:w-96 text-width">
                 Choose from the items and get free delivery to your doorstep.
                 Order online and enjoy our products. If there is any problem
                 with our product, Products will be replace for free.

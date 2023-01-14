@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import toast from "react-hot-toast";
+import { Icon } from "@iconify/react";
+import Loading from "../../shared/Loading";
 
 const AllUsers = () => {
-  const { data: users = [], refetch } = useQuery({
+  const {
+    data: users = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
@@ -49,13 +55,19 @@ const AllUsers = () => {
       });
   };
 
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
-      <h3 className="text-3xl mb-6 mt-5 ml-3">All Users</h3>
+      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold dark:text-white text-center">
+        All Users
+      </h3>
       <div className="overflow-x-auto mx-3">
-        <table className="table w-full">
+        <table className="table w-full dark:bg-black  dark:text-white">
           <thead>
-            <tr>
+            <tr className="">
               <th>Index</th>
               <th>Name</th>
               <th>Email</th>
@@ -72,21 +84,28 @@ const AllUsers = () => {
                 <td>{user.email}</td>
                 <td>{user.type}</td>
                 <td>
-                  {user?.role !== "admin" && (
+                  {user?.role !== "admin" ? (
                     <button
                       onClick={() => handleMakeAdmin(user._id)}
                       className="btn btn-xs btn-primary"
                     >
                       Make Admin
                     </button>
+                  ) : (
+                    <Icon
+                      icon="material-symbols:cloud-done"
+                      width="32"
+                      className="text-green-500"
+                    />
                   )}
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleDelete(user)}
-                    className="btn btn-xs btn-danger"
-                  >
-                    Delete
+                  <button onClick={() => handleDelete(user)} className="">
+                    <Icon
+                      icon="material-symbols:delete-forever"
+                      width="30"
+                      className="text-red-700"
+                    />
                   </button>
                 </td>
               </tr>

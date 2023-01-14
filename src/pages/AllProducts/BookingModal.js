@@ -51,30 +51,32 @@ const BookingModal = ({ serviceModal, setServiceModal }) => {
     <div>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box relative">
+        <div className="modal-box relative dark:bg-black">
           <label
             htmlFor="booking-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold mb-6">{productName}</h3>
+          <h3 className="text-lg font-bold mb-6 dark:text-white">
+            {productName}
+          </h3>
           <form
             onSubmit={handleBookingForm}
-            className="grid grid-cols-1 gap-6 py-3"
+            className="grid grid-cols-1 gap-6 py-3 "
           >
             <input
               defaultValue={user?.displayName}
               name="name"
               type="text"
               placeholder="Full Name"
-              className="input input-bordered input-md w-full"
+              className="input input-bordered input-md w-full dark:bg-black dark:border-white dark:text-white"
             />
             <input
               name="phone"
               type="text"
               placeholder="Phone Number"
-              className="input input-bordered input-md w-full"
+              className="input input-bordered input-md w-full dark:bg-black dark:border-white dark:text-white"
               required
             />
             <input
@@ -82,13 +84,13 @@ const BookingModal = ({ serviceModal, setServiceModal }) => {
               name="email"
               type="email"
               placeholder="Email"
-              className="input input-bordered input-md w-full"
+              className="input input-bordered input-md w-full dark:bg-black dark:border-white dark:text-white"
             />
             <input
               type="text"
               name="location"
               placeholder="Your Location"
-              className="input input-bordered input-md w-full"
+              className="input input-bordered input-md w-full dark:bg-black dark:border-white dark:text-white"
               required
             />
             <input

@@ -1,20 +1,16 @@
 @media only screen and (max-width: 640px) {
     .margin-left{
-        margin-left: 20px;
+        display: flex;
+        justify-content: center;
     }
    .margin-bottom{
     margin-bottom: 10px;
    }
-   .text-width{
-    width: 100%;
-   }
-   .pic-width{
-    width: 12rem;
+
+   .card-width{
+    width: 80%;
     margin: auto;
-   }
-   .margin-right{
-    margin-right: 35px;
-    margin-bottom: 30px;
+    margin-top: 50px;
    }
   .margin-button{
     margin-left: 10px;

@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../../context/AuthProvider";
 import Loading from "../../shared/Loading";
 import MyOrdersModal from "./MyOrdersModal";
+import { Icon } from "@iconify/react";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -54,7 +55,9 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-6 mt-5 ml-3">My Orders</h3>
+      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold text-center dark:text-white">
+        My Orders
+      </h3>
       <div className="overflow-x-auto mx-3">
         <table className="table w-full">
           <thead>
@@ -77,9 +80,13 @@ const MyOrders = () => {
                   <label
                     onClick={() => setDeletingOrder(booking)}
                     htmlFor="orderdelete-modal"
-                    className="btn btn-sm btn-error"
+                    className="btn btn-outline btn-error btn-sm px-0"
                   >
-                    Delete
+                    <Icon
+                      icon="material-symbols:delete-forever"
+                      width="30"
+                      className="text-red-700"
+                    />
                   </label>
                 </td>
               </tr>

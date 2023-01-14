@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useToken from "../../Hooks/useToken";
+import "./SignUp.css";
 
 const SignUp = () => {
   const { SignUp, updateUser, googleSignIn } = useContext(AuthContext);
@@ -92,43 +93,43 @@ const SignUp = () => {
   };
 
   return (
-    <div className="h-[800px] flex justify-center items-center">
-      <div className="w-96 p-7 shadow-lg rounded-md">
-        <h2 className="text-xl text-center">Sign up</h2>
+    <div className="h-[800px]  flex justify-center items-center">
+      <div className="w-96 small-width bg-[#FCD800] dark:bg-black dark:border p-7 shadow-lg rounded-md">
+        <h2 className="text-xl text-center dark:text-white">Sign up</h2>
         <form onSubmit={handleSubmit(handleSignup)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text dark:text-white">Name</span>
             </label>
             <input
               type="text"
               {...register("name")}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full max-w-xs dark:bg-black">
             <label className="label">
-              <span className="label-text">Type</span>
+              <span className="label-text dark:text-white">Type</span>
             </label>
             <select
-              {...register("type")}
-              className="select select-bordered w-full max-w-xs"
+              {...register("type", { required: "Type is required" })}
+              className="select select-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             >
               <option disabled selected>
-                Select Type
+                <span className="dark:text-white"> Select Type</span>
               </option>
-              <option>Buyer</option>
-              <option>Seller</option>
+              <option className="dark:text-white">Buyer</option>
+              <option className="dark:text-white">Seller</option>
             </select>
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text dark:text-white">Email</span>
             </label>
             <input
               type="Email"
               {...register("email", { required: "Email is required" })}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             />
             {errors.email && (
               <p className="text-red-600" role="alert">
@@ -138,7 +139,7 @@ const SignUp = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text dark:text-white">Password</span>
             </label>
             <input
               type="password"
@@ -155,7 +156,7 @@ const SignUp = () => {
                     "Password must have a number and a special character",
                 },
               })}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             />
             {errors.password && (
               <p className="text-red-600" role="alert">
@@ -170,14 +171,17 @@ const SignUp = () => {
           />
           <div>{setError && <p className="text-red-600">{error}</p>}</div>
         </form>
-        <p className="mt-5">
+        <p className="mt-5 dark:text-white">
           Already have an account{" "}
-          <Link className="text-primary" to="/login">
+          <Link className="text-black dark:text-primary link" to="/login">
             Please Log in
           </Link>
         </p>
-        <div className="divider">OR</div>
-        <button onClick={handleGoogleSignUp} className="btn btn-outline w-full">
+        <div className="divider dark:text-white">OR</div>
+        <button
+          onClick={handleGoogleSignUp}
+          className="btn btn-outline w-full dark:text-white"
+        >
           CONTINUE WITH GOOGLE
         </button>
       </div>

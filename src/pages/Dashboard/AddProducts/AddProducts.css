@@ -1,0 +1,7 @@
+@media only screen and (max-width: 648px) {
+    .small-width{
+     width: 80%;
+     margin: auto;
+     margin-top: 25px;
+    }
+   }
