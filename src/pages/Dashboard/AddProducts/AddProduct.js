@@ -1,10 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 import "./AddProducts.css";
 
 const AddProduct = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -38,8 +41,9 @@ const AddProduct = () => {
             postedDate: data.postedDate,
             mobile: data.mobile,
             category_id: data.category_id,
+            ad: false,
+            email: user.email,
           };
-          console.log(products);
           fetch(
             "https://react-assignment-resale-products-server.vercel.app/products",
             {
@@ -55,7 +59,7 @@ const AddProduct = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success("Product added successfully");
-                // navigate(`/products/${category.category_id}`);
+                // navigate(`/products/${category_id}`);
               }
             });
         }
@@ -74,7 +78,7 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("sellerName")}
+            {...register("sellerName", { required: "Name is required" })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -84,7 +88,7 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("name")}
+            {...register("name", { required: "Name is required" })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -94,7 +98,7 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("location")}
+            {...register("location", { required: "Location is required" })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -104,7 +108,9 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("originalPrice")}
+            {...register("originalPrice", {
+              required: "Original Price is required",
+            })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -114,7 +120,9 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("resalePrice")}
+            {...register("resalePrice", {
+              required: "Resale price is required",
+            })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -124,7 +132,9 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("purchaseYear")}
+            {...register("purchaseYear", {
+              required: "Purchase year is required",
+            })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -134,7 +144,7 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("postedDate")}
+            {...register("postedDate", { required: "Post date is required" })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>
@@ -144,7 +154,7 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            {...register("mobile")}
+            {...register("mobile", { required: "Phone number is required" })}
             className="input input-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
           />
         </div>

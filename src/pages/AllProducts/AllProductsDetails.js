@@ -1,4 +1,6 @@
 import React from "react";
+import { Icon } from "@iconify/react";
+import { useQuery } from "@tanstack/react-query";
 
 const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
@@ -11,7 +13,20 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
     purchaseYear,
     postedDate,
     mobile,
+    email,
   } = product;
+
+  const { data: users = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://react-assignment-resale-products-server.vercel.app/users"
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+
   return (
     <div>
       <div className="card lg:card-side  bg-[#A2CBD2] shadow-xl rounded-md  dark:bg-black dark:border dark:text-gray-100 mx-auto py-5">
@@ -23,7 +38,18 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Seller Name: {sellerName}</h2>
+          <div className="flex items-center">
+            <h2 className="card-title mr-5">Seller Name: {sellerName}</h2>
+            {users.map((user) => (
+              <div>
+                {user.verified ? (
+                  <Icon icon="arcticons:okta-verify" width="32" />
+                ) : (
+                  <></>
+                )}
+              </div>
+            ))}
+          </div>
           <h2 className="text-xl font-semibold tracking-wide">
             Product Name: {name}
           </h2>

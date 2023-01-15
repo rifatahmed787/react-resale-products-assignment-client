@@ -88,7 +88,7 @@ const Login = () => {
             )}
           </div>
           <input
-            className="btn btn-accent w-full"
+            className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
             value="Log in"
             type="submit"
           />

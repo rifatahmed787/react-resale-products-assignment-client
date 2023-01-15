@@ -48,7 +48,7 @@ const SignUp = () => {
   };
 
   const saveUser = (name, email, type) => {
-    const user = { name, email, type };
+    const user = { name, email, type, verified: false };
     fetch("https://react-assignment-resale-products-server.vercel.app/users", {
       method: "POST",
       headers: {
@@ -165,7 +165,7 @@ const SignUp = () => {
             )}
           </div>
           <input
-            className="btn btn-accent w-full mt-5"
+            className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
             value="Sign up"
             type="submit"
           />

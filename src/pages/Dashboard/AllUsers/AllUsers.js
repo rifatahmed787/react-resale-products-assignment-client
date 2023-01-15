@@ -55,6 +55,22 @@ const AllUsers = () => {
       });
   };
 
+  const handleVerified = (id) => {
+    fetch(`http://localhost:5000/users/verify/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("User verified successfully");
+          refetch();
+        }
+      });
+  };
+
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -72,6 +88,7 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Status</th>
+              <th>Verified</th>
               <th>Admin</th>
               <th>Delete</th>
             </tr>
@@ -83,6 +100,19 @@ const AllUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.type}</td>
+                <td>
+                  {user?.verified ? (
+                    <p>verified</p>
+                  ) : (
+                    <button onClick={() => handleVerified(user._id)}>
+                      <Icon
+                        icon="uil:comment-verify"
+                        width="32"
+                        className="text-blue-500"
+                      />
+                    </button>
+                  )}
+                </td>
                 <td>
                   {user?.role !== "admin" ? (
                     <button
