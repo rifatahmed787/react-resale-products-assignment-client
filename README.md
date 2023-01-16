@@ -16,8 +16,9 @@ Dashboard route.
 * MongoDB
 * TailwindCSS
 * JWT
-# Packages Used in this project
+# Packages Used in this project:
 * React Query
+* React-router-dom
 * React hot Toast
 * React Hook Form
 # CSS components Libarary:
