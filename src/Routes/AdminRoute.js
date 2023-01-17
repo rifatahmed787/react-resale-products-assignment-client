@@ -7,19 +7,17 @@ import Loading from "../pages/shared/Loading";
 const AdminRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
-  const { isAdmin, isAdminLoading } = useAdmin(user?.email);
-  console.log(isAdmin);
-  console.log(isAdminLoading);
+  const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   const location = useLocation();
 
   if (loading || isAdminLoading) {
     return <Loading></Loading>;
   }
 
-  if (user && isAdmin) {
+  if (user && user.uid && isAdmin) {
     return children;
   }
-
+  console.log(user, user.uid, isAdmin);
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 

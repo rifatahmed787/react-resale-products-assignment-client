@@ -43,7 +43,7 @@ const Login = () => {
   };
   return (
     <div className="h-[600px] flex justify-center items-center">
-      <div className="w-96 small-width bg-[#FCD800] dark:bg-black dark:border p-7 shadow-lg rounded-md">
+      <div className="w-96 small-width bg-[#70c5b9] dark:bg-black dark:border p-7 shadow-lg rounded-md">
         <h2 className="text-xl text-center dark:text-white">Log in</h2>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="form-control w-full max-w-xs">
@@ -88,7 +88,7 @@ const Login = () => {
             )}
           </div>
           <input
-            className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
+            className="btn bg-[#70c5b9] hover:bg-[#70c5b9]  text-black w-full mt-5"
             value="Log in"
             type="submit"
           />

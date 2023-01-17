@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 import { useQuery } from "@tanstack/react-query";
+import verify from "../../assets/image/veryfied.png";
 
 const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
@@ -23,7 +23,8 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
         "https://react-assignment-resale-products-server.vercel.app/users"
       );
       const data = await res.json();
-      return data;
+      const userData = data.filter((user) => user.email === email);
+      return userData;
     },
   });
 
@@ -38,17 +39,17 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
           />
         </figure>
         <div className="card-body">
-          <div className="flex items-center">
-            <h2 className="card-title mr-5">Seller Name: {sellerName}</h2>
-            {users.map((user) => (
-              <div>
-                {user.verified ? (
-                  <Icon icon="arcticons:okta-verify" width="32" />
-                ) : (
-                  <></>
-                )}
-              </div>
-            ))}
+          <div>
+            <h2 className="card-title flex items-center">
+              Seller Name: {sellerName}{" "}
+              {users.map((user) => (
+                <div>
+                  {user?.verified && (
+                    <img src={verify} alt="" className="w-5" />
+                  )}
+                </div>
+              ))}
+            </h2>
           </div>
           <h2 className="text-xl font-semibold tracking-wide">
             Product Name: {name}

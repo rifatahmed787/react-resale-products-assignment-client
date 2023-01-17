@@ -2,13 +2,12 @@ import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import "./AddProducts.css";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -59,7 +58,6 @@ const AddProduct = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success("Product added successfully");
-                // navigate(`/products/${category_id}`);
               }
             });
         }
@@ -67,7 +65,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="w-96 small-width p-7 shadow-lg rounded-md mx-auto bg-[#FCD800] dark:bg-black my-20">
+    <div className="w-96 small-width p-7 shadow-lg rounded-md mx-auto bg-[#70c5b9] dark:bg-black my-20">
       <h2 className="text-3xl mb-6 ml-3 text-center dark:text-white">
         Add Product
       </h2>
@@ -193,11 +191,10 @@ const AddProduct = () => {
         </div>
 
         <input
-          className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
+          className="btn bg-[#70c5b9] hover:bg-[#70c5b9]  text-black w-full mt-5"
           value="Add Product"
           type="submit"
         />
-        {/* <div>{setError && <p className="text-red-600">{error}</p>}</div> */}
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useToken from "../../Hooks/useToken";
 import "./SignUp.css";
@@ -12,11 +12,13 @@ const SignUp = () => {
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   if (token) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
-
   const {
     register,
     handleSubmit,
@@ -94,7 +96,7 @@ const SignUp = () => {
 
   return (
     <div className="h-[800px]  flex justify-center items-center">
-      <div className="w-96 small-width bg-[#FCD800] dark:bg-black dark:border p-7 shadow-lg rounded-md">
+      <div className="w-96 small-width bg-[#70c5b9] dark:bg-black dark:border p-7 shadow-lg rounded-md">
         <h2 className="text-xl text-center dark:text-white">Sign up</h2>
         <form onSubmit={handleSubmit(handleSignup)}>
           <div className="form-control w-full max-w-xs">
@@ -165,7 +167,7 @@ const SignUp = () => {
             )}
           </div>
           <input
-            className="btn bg-[#fcd800] hover:bg-[#fcd800]  text-black w-full mt-5"
+            className="btn bg-[#70c5b9] hover:bg-[#70c5b9]  text-black w-full mt-5"
             value="Sign up"
             type="submit"
           />
@@ -180,7 +182,7 @@ const SignUp = () => {
         <div className="divider dark:text-white">OR</div>
         <button
           onClick={handleGoogleSignUp}
-          className="btn btn-outline w-full dark:text-white"
+          className="btn btn-outline w-full hover:bg-[#70c5b9] dark:text-white"
         >
           CONTINUE WITH GOOGLE
         </button>

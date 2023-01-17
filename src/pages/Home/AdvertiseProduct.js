@@ -19,7 +19,7 @@ const AdvertiseProduct = () => {
   }
   return (
     <div>
-      {advertises.length > 0 ? (
+      {advertises && advertises.length > 0 ? (
         <h2 className="text-2xl font-semibold pt-10 text-center text-purple-700 dark:text-white">
           Advertising Products
         </h2>
@@ -30,7 +30,10 @@ const AdvertiseProduct = () => {
         {advertises &&
           advertises.map((advertise) => (
             <>
-              <div className="card lg:card-side  bg-[#A2CBD2] shadow-xl rounded-md  dark:bg-black dark:border dark:text-gray-100 mx-auto py-5 mt-5">
+              <div
+                key={advertise._id}
+                className="card lg:card-side  bg-[#A2CBD2] shadow-xl rounded-md  dark:bg-black dark:border dark:text-gray-100 mx-auto py-5 mt-5"
+              >
                 <figure className="lg:pl-3 md:pl-3">
                   <img
                     src={advertise.img}

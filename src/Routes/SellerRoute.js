@@ -6,7 +6,7 @@ import Loading from "../pages/shared/Loading";
 
 const SellerRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  const { isSeller, isSellerLoading } = useSeller(user?.email);
+  const [isSeller, isSellerLoading] = useSeller(user?.email);
 
   const location = useLocation();
 
@@ -14,7 +14,7 @@ const SellerRoute = ({ children }) => {
     return <Loading></Loading>;
   }
 
-  if (user && isSeller) {
+  if (user && user.uid && isSeller) {
     return children;
   }
 

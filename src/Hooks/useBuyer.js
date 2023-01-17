@@ -6,17 +6,15 @@ const useBuyer = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(
-        `https://react-assignment-resale-products-server.vercel.app/users/buyer/${email}`
-      )
+      fetch(`http://localhost:5000/users/buyer/${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setIsBuyer(data.isBuyer);
           setIsBuyerLoading(false);
         });
     }
   }, [email]);
+
   return [isBuyer, isBuyerLoading];
 };
 

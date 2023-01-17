@@ -5,6 +5,7 @@ import { AuthContext } from "../../../context/AuthProvider";
 import Loading from "../../shared/Loading";
 import MyOrdersModal from "./MyOrdersModal";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -66,6 +67,8 @@ const MyOrders = () => {
               <th>Product Name</th>
               <th>Email</th>
               <th>Phone</th>
+              <th>Price</th>
+              <th>Pay</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -76,6 +79,17 @@ const MyOrders = () => {
                 <td>{booking.product}</td>
                 <td>{booking.email}</td>
                 <td>{booking.phone}</td>
+                <td>{booking.price}</td>
+                <td>
+                  {booking.price && !booking.paid && (
+                    <Link to={`/dashboard/payment/${booking._id}`}>
+                      <button className="btn btn-primary btn-sm">Pay</button>
+                    </Link>
+                  )}
+                  {booking.price && booking.paid && (
+                    <button className="btn btn-primary btn-sm">Paid</button>
+                  )}
+                </td>
                 <td>
                   <label
                     onClick={() => setDeletingOrder(booking)}

@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 import useAdmin from "../Hooks/useAdmin";
 import useBuyer from "../Hooks/useBuyer";
 import useSeller from "../Hooks/useSeller";
+import Footer from "../pages/shared/Footer";
 import Navbar from "../pages/shared/Navbar";
 
 const DashboardLayout = () => {
@@ -27,10 +28,13 @@ const DashboardLayout = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-[#149777] dark:bg-[#08221c] text-base-content">
+            <li>
+              <Link to="/dashboard" />
+            </li>
             {isBuyer && (
               <>
                 <li className="mb-3 text-white">
-                  <Link to="/dashboard">My Orders</Link>
+                  <Link to="/dashboard/myorders">My Order</Link>
                 </li>
               </>
             )}
@@ -54,6 +58,7 @@ const DashboardLayout = () => {
           </ul>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

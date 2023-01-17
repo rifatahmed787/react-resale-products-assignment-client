@@ -7,6 +7,8 @@ import AddProduct from "../pages/Dashboard/AddProducts/AddProduct";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../pages/Dashboard/MyOrders/MyOrders";
 import MyProduct from "../pages/Dashboard/MyProduct.js/MyProduct";
+import Payment from "../pages/Dashboard/PaymentSystem/Payment";
+import Welcome from "../pages/Dashboard/WelcomeDashboard/Welcome";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/login/Login";
@@ -65,7 +67,17 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           <PrivateRoute>
-            <MyOrders></MyOrders>
+            <Welcome></Welcome>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myorders",
+        element: (
+          <PrivateRoute>
+            <BuyerRoute>
+              <MyOrders></MyOrders>
+            </BuyerRoute>
           </PrivateRoute>
         ),
       },
@@ -73,7 +85,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/allusers",
         element: (
           <PrivateRoute>
-            <AllUsers></AllUsers>
+            <AdminRoute>
+              <AllUsers></AllUsers>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -87,7 +101,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myproduct",
-        element: <MyProduct></MyProduct>,
+        element: (
+          <PrivateRoute>
+            <SellerRoute>
+              <MyProduct></MyProduct>
+            </SellerRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booking/${params.id}`),
       },
     ],
   },
