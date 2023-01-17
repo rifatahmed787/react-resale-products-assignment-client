@@ -56,12 +56,15 @@ const AllUsers = () => {
   };
 
   const handleVerified = (id) => {
-    fetch(`http://localhost:5000/users/verify/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://react-assignment-resale-products-server.vercel.app/users/verify/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

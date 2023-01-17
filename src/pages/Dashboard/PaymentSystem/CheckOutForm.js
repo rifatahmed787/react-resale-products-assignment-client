@@ -14,13 +14,16 @@ const CheckOutForm = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://react-assignment-resale-products-server.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [price]);
@@ -74,13 +77,16 @@ const CheckOutForm = ({ booking }) => {
         email,
         bookingId: _id,
       };
-      fetch("http://localhost:5000/payments", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(payment),
-      })
+      fetch(
+        "https://react-assignment-resale-products-server.vercel.app/payments",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(payment),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -93,16 +99,19 @@ const CheckOutForm = ({ booking }) => {
     setProcessing(false);
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="px-5 py-16 card bg-[#B4DEEF] dark:bg-black dark:border-white lg:w-1/3 md:w-1/3 sm:4/5 card-width  my-12 mx-auto"
+      >
         <CardElement
           options={{
             style: {
               base: {
-                fontSize: "16px",
+                fontSize: "18px",
                 color: "#424770",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#023020",
                 },
               },
               invalid: {
@@ -111,21 +120,27 @@ const CheckOutForm = ({ booking }) => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe || !clientSecret || processing}>
+        <button
+          className="mt-3 dark:text-gray-200 text-lg font-semibold"
+          type="submit"
+          disabled={!stripe || !clientSecret || processing}
+        >
           Pay
         </button>
       </form>
-      <p className="text-red-500">{cardError}</p>
-      {success && (
-        <div>
-          <p className="text-green-500">{success}</p>
-          <p>
-            Your transactionId:{" "}
-            <span className="font-bold">{transactionId}</span>
-          </p>
-        </div>
-      )}
-    </>
+      <div className="text-center">
+        <p className="text-red-500">{cardError}</p>
+        {success && (
+          <div>
+            <p className="text-green-500">{success}</p>
+            <p className="dark:text-gray-300">
+              Your transactionId:{" "}
+              <span className="font-bold">{transactionId}</span>
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

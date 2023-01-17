@@ -40,7 +40,7 @@ const BookingModal = ({ serviceModal, setServiceModal }) => {
         if (data.acknowledged) {
           setServiceModal(null);
           toast.success("Booking confirmed");
-          navigate("/dashboard");
+          navigate("/dashboard/myorders");
         } else {
           toast.error(data.message);
         }

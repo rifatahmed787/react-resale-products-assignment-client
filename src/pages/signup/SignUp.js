@@ -80,6 +80,7 @@ const SignUp = () => {
       name,
       email,
       type: "Buyer",
+      verified: false,
     };
     fetch("https://react-assignment-resale-products-server.vercel.app/users", {
       method: "POST",

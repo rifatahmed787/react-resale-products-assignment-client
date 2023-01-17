@@ -4,6 +4,7 @@ import React from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import Loading from "../../shared/Loading";
 import CheckOutForm from "./CheckOutForm";
+import "./Payment.css";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
@@ -21,7 +22,7 @@ const Payment = () => {
       <p className="text-center dark:text-white">
         Please pay {booking.price} tk for your booking {booking.product}.
       </p>
-      <div className="card  w-1/3 my-12 mx-auto">
+      <div>
         <Elements stripe={stripePromise}>
           <CheckOutForm booking={booking} />
         </Elements>

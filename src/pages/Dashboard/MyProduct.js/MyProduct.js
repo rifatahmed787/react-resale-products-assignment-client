@@ -16,19 +16,24 @@ const MyProduct = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/product/${user?.email}`);
+      const res = await fetch(
+        `https://react-assignment-resale-products-server.vercel.app/product/${user?.email}`
+      );
       const data = await res.json();
       return data;
     },
   });
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/product/add/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://react-assignment-resale-products-server.vercel.app/product/add/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -39,9 +44,12 @@ const MyProduct = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/product/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://react-assignment-resale-products-server.vercel.app/product/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -66,7 +74,7 @@ const MyProduct = () => {
             <tr>
               <th>Index</th>
               <th>Product Name</th>
-              <th>Status</th>
+              {/* <th>Status</th> */}
               <th>Advertise</th>
               <th>Delete</th>
             </tr>
@@ -76,7 +84,7 @@ const MyProduct = () => {
               <tr key={product._id}>
                 <th>{i + 1}</th>
                 <td>{product.name}</td>
-                <td></td>
+
                 <td>
                   {product?.ad ? (
                     <p>Advertised</p>

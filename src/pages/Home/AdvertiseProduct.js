@@ -1,13 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import Loading from "../shared/Loading";
 
 const AdvertiseProduct = () => {
+  const { user } = useContext(AuthContext);
+
   const { data: advertises, isLoading } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/product");
+      const res = await fetch(
+        "https://react-assignment-resale-products-server.vercel.app/product"
+      );
       const data = await res.json();
       const adData = data.filter((p) => p.ad);
       return adData;
@@ -59,14 +65,25 @@ const AdvertiseProduct = () => {
                     <p>Post Date: {advertise.postedDate}</p>
                   </div>
                   <div className="lg:flex md:flex"></div>
-                  <Link to={`/products/${advertise.category_id}`}>
-                    <label
-                      htmlFor="booking-modal"
-                      className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
-                    >
-                      See Details
-                    </label>
-                  </Link>
+                  {user?.email ? (
+                    <Link to={`/products/${advertise.category_id}`}>
+                      <label
+                        htmlFor="booking-modal"
+                        className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
+                      >
+                        See Details
+                      </label>
+                    </Link>
+                  ) : (
+                    <Link to="/login">
+                      <label
+                        htmlFor="booking-modal"
+                        className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
+                      >
+                        See Details
+                      </label>
+                    </Link>
+                  )}
                 </div>
               </div>
             </>

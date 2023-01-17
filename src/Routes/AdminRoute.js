@@ -17,7 +17,6 @@ const AdminRoute = ({ children }) => {
   if (user && user.uid && isAdmin) {
     return children;
   }
-  console.log(user, user.uid, isAdmin);
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 

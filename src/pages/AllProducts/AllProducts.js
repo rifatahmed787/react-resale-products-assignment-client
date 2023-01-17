@@ -22,14 +22,13 @@ const AllProducts = () => {
         )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 my-5 lg:mx-4 md:mx-5 sm-width">
-        {products.length > 0 &&
-          products.map((product) => (
-            <AllProductsDetails
-              key={product._id}
-              product={product}
-              setServiceModal={setServiceModal}
-            ></AllProductsDetails>
-          ))}
+        {products.map((product) => (
+          <AllProductsDetails
+            key={product._id}
+            product={product}
+            setServiceModal={setServiceModal}
+          ></AllProductsDetails>
+        ))}
       </div>
       <div>
         {serviceModal && (

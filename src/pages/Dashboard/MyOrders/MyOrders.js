@@ -73,38 +73,41 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, i) => (
-              <tr key={booking._id}>
-                <th>{i + 1}</th>
-                <td>{booking.product}</td>
-                <td>{booking.email}</td>
-                <td>{booking.phone}</td>
-                <td>{booking.price}</td>
-                <td>
-                  {booking.price && !booking.paid && (
-                    <Link to={`/dashboard/payment/${booking._id}`}>
-                      <button className="btn btn-primary btn-sm">Pay</button>
-                    </Link>
-                  )}
-                  {booking.price && booking.paid && (
-                    <button className="btn btn-primary btn-sm">Paid</button>
-                  )}
-                </td>
-                <td>
-                  <label
-                    onClick={() => setDeletingOrder(booking)}
-                    htmlFor="orderdelete-modal"
-                    className="btn btn-outline btn-error btn-sm px-0"
-                  >
-                    <Icon
-                      icon="material-symbols:delete-forever"
-                      width="30"
-                      className="text-red-700"
-                    />
-                  </label>
-                </td>
-              </tr>
-            ))}
+            {bookings.length > 0 &&
+              bookings.map((booking, i) => (
+                <tr key={booking._id}>
+                  <th>{i + 1}</th>
+                  <td>{booking.product}</td>
+                  <td>{booking.email}</td>
+                  <td>{booking.phone}</td>
+                  <td>{booking.price}</td>
+                  <td>
+                    {booking.price && !booking.paid && (
+                      <Link to={`/dashboard/payment/${booking._id}`}>
+                        <button className="btn btn-primary btn-sm">Pay</button>
+                      </Link>
+                    )}
+                    {booking.price && booking.paid && (
+                      <button className="text-green-700 font-semibold">
+                        Paid
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    <label
+                      onClick={() => setDeletingOrder(booking)}
+                      htmlFor="orderdelete-modal"
+                      className="btn btn-outline btn-error btn-sm px-0"
+                    >
+                      <Icon
+                        icon="material-symbols:delete-forever"
+                        width="30"
+                        className="text-red-700"
+                      />
+                    </label>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
