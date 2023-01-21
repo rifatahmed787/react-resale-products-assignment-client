@@ -13,7 +13,7 @@ const BuyerRoute = ({ children }) => {
     return <Loading></Loading>;
   }
 
-  if (user && user.uid && isBuyer) {
+  if (user && user?.uid && isBuyer) {
     return children;
   }
 

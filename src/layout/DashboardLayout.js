@@ -1,22 +1,24 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import useAdmin from "../Hooks/useAdmin";
 import useBuyer from "../Hooks/useBuyer";
 import useSeller from "../Hooks/useSeller";
-import Footer from "../pages/shared/Footer";
 import Navbar from "../pages/shared/Navbar";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
-
+  const location = useLocation();
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
   const [isBuyer] = useBuyer(user?.email);
-  console.log(user);
+
   return (
     <div>
-      <Navbar></Navbar>
+      <div>
+        <Navbar></Navbar>
+      </div>
       <div className="drawer drawer-mobile dark:bg-[#020e0b]">
         <input
           id="dashboard-drawer"
@@ -34,32 +36,55 @@ const DashboardLayout = () => {
             </li>
             {isBuyer && (
               <>
-                <li className="mb-3 text-white">
-                  <Link to="/dashboard/myorders">My Order</Link>
+                <li
+                  className={`font-semibold text-white ${
+                    location.pathname === "/dashboard/myorders"
+                      ? "border-b-2 border-black dark:border-green-300"
+                      : ""
+                  }`}
+                >
+                  <Link to="/dashboard/myorders">My order</Link>
                 </li>
               </>
             )}
             {isSeller && (
               <>
-                <li className="mb-3 text-white">
-                  <Link to="/dashboard/addproducts">Add Product</Link>
+                <li
+                  className={`font-semibold text-white ${
+                    location.pathname === "/dashboard/addproducts"
+                      ? "border-b-2 border-black dark:border-green-300"
+                      : ""
+                  }`}
+                >
+                  <Link to="/dashboard/addproducts">Add product</Link>
                 </li>
-                <li className="mb-3 text-white">
-                  <Link to="/dashboard/myproduct">My Product</Link>
+                <li
+                  className={`font-semibold text-white ${
+                    location.pathname === "/dashboard/myproduct"
+                      ? "border-b-2 border-black dark:border-green-300"
+                      : ""
+                  }`}
+                >
+                  <Link to="/dashboard/myproduct">My product</Link>
                 </li>
               </>
             )}
             {isAdmin && (
               <>
-                <li className="mb-3 text-white">
-                  <Link to="/dashboard/allusers">All Users</Link>
+                <li
+                  className={`font-semibold text-white ${
+                    location.pathname === "/dashboard/allusers"
+                      ? "border-b-2 border-black dark:border-green-300"
+                      : ""
+                  }`}
+                >
+                  <Link to="/dashboard/allusers">All users</Link>
                 </li>
               </>
             )}
           </ul>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 };

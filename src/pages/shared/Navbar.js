@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const { SignOut, user } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,17 +35,35 @@ const Navbar = () => {
   };
 
   const menuItems = (
-    <React.Fragment>
-      <li>
+    <>
+      <li
+        className={`font-semibold dark:text-white ${
+          location.pathname === "/"
+            ? "border-b-2 border-black dark:border-green-300"
+            : ""
+        }`}
+      >
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li
+        className={`font-semibold dark:text-white ${
+          location.pathname === "/blog"
+            ? "border-b-2 border-black dark:border-green-300"
+            : ""
+        }`}
+      >
         <Link to="/blog">Blog</Link>
       </li>
 
-      {user?.uid ? (
+      {user?.uid || user?.email ? (
         <>
-          <li>
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/dashboard"
+                ? "border-b-2 border-black dark:border-green-300"
+                : ""
+            }`}
+          >
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li
@@ -56,15 +75,27 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li>
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/login"
+                ? "border-b-2 border-black dark:border-green-300"
+                : ""
+            }`}
+          >
             <Link to="/login">Log in</Link>
           </li>
-          <li>
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/signup"
+                ? "border-b-2 border-black dark:border-green-300"
+                : ""
+            }`}
+          >
             <Link to="/signup">Sign up</Link>
           </li>
         </>
       )}
-    </React.Fragment>
+    </>
   );
 
   return (

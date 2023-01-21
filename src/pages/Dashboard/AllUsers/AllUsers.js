@@ -80,13 +80,13 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold dark:text-white text-center">
+      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold  text-center">
         All Users
       </h3>
       <div className="overflow-x-auto mx-3">
-        <table className="table w-full dark:bg-black  dark:text-white">
-          <thead>
-            <tr className="">
+        <table className="table w-full ">
+          <thead className="">
+            <tr>
               <th>Index</th>
               <th>Name</th>
               <th>Email</th>

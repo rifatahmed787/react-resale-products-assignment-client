@@ -119,7 +119,7 @@ const SignUp = () => {
               className="select select-bordered w-full max-w-xs dark:bg-black dark:text-white dark:border-white"
             >
               <option disabled selected>
-                <span className="dark:text-white"> Select Type</span>
+                <span className="dark:text-white">Select Type</span>
               </option>
               <option className="dark:text-white">Buyer</option>
               <option className="dark:text-white">Seller</option>
