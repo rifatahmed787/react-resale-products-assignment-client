@@ -96,7 +96,7 @@ const BookingModal = ({ serviceModal, setServiceModal }) => {
             <input
               type="submit"
               value="Submit"
-              className="btn  btn-primary bg-gradient-to-r from-primary to-secondary w-full"
+              className="btn  btn-primary bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 w-full"
             />
           </form>
         </div>

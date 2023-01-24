@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import Loading from "../shared/Loading";
+import "./Category.css";
 
 const AdvertiseProduct = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +38,7 @@ const AdvertiseProduct = () => {
           advertises.map((advertise) => (
             <div
               key={advertise._id}
-              className="card lg:card-side  bg-[#A2CBD2] shadow-xl rounded-md  dark:bg-black dark:border dark:text-gray-100 mx-auto py-5 mt-5"
+              className="card green lg:card-side shadow-xl rounded-md  dark:bg-black dark:border text-white mx-auto py-5 mt-5"
             >
               <figure className="lg:pl-3 md:pl-3">
                 <img
@@ -63,26 +64,21 @@ const AdvertiseProduct = () => {
                   <p>Purchase year: {advertise.purchaseYear}</p>
                   <p>Post Date: {advertise.postedDate}</p>
                 </div>
-                <div className="lg:flex md:flex"></div>
-                {user?.email ? (
-                  <Link to={`/products/${advertise.category_id}`}>
-                    <label
-                      htmlFor="booking-modal"
-                      className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
-                    >
-                      See Details
-                    </label>
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <label
-                      htmlFor="booking-modal"
-                      className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
-                    >
-                      See Details
-                    </label>
-                  </Link>
-                )}
+                <div>
+                  {user?.email ? (
+                    <Link to={`/products/${advertise.category_id}`}>
+                      <label className="btn-3 custom-btn text-center hover:text-white">
+                        <span> See Details</span>
+                      </label>
+                    </Link>
+                  ) : (
+                    <Link to="/login">
+                      <label className="btn-3 custom-btn text-center">
+                        <span> See Details</span>
+                      </label>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           ))}

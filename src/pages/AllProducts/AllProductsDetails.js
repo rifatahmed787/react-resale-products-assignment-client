@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import verify from "../../assets/image/veryfied.png";
+import "./AllProducts.css";
 
 const AllProductsDetails = ({ product, setServiceModal }) => {
   const {
@@ -30,7 +31,7 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
 
   return (
     <div>
-      <div className="card lg:card-side  bg-[#A2CBD2] shadow-xl rounded-md  dark:bg-black dark:border dark:text-gray-100 mx-auto py-5">
+      <div className="card green lg:card-side   shadow-xl rounded-md  dark:bg-black dark:border text-white mx-auto py-5">
         <figure className="lg:pl-3 md:pl-3">
           <img
             src={img}
@@ -68,10 +69,10 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
           </div>
           <label
             htmlFor="booking-modal"
-            className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
+            className="btn btn-3 custom-btn text-center text-white"
             onClick={() => setServiceModal(product)}
           >
-            Book Now
+            <span>Book Now</span>
           </label>
         </div>
       </div>
