@@ -15,11 +15,11 @@ const DashboardLayout = () => {
   const [isBuyer] = useBuyer(user?.email);
 
   return (
-    <div>
+    <div className="dark:bg-[#020e0b]">
       <div>
         <Navbar></Navbar>
       </div>
-      <div className="drawer drawer-mobile dark:bg-[#020e0b]">
+      <div className="drawer drawer-mobile ">
         <input
           id="dashboard-drawer"
           type="checkbox"

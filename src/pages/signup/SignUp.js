@@ -1,24 +1,22 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useToken from "../../Hooks/useToken";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const { SignUp, updateUser, googleSignIn } = useContext(AuthContext);
+  const { SignUp, updateUser, googleSignIn, SignOut } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || "/";
 
   if (token) {
-    navigate(from, { replace: true });
+    navigate("/");
   }
+
   const {
     register,
     handleSubmit,
@@ -30,7 +28,7 @@ const SignUp = () => {
     SignUp(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        toast.success("Signed up successfully");
+
         console.log(user);
         const userInfo = {
           displayName: data.name,
@@ -41,9 +39,14 @@ const SignUp = () => {
             saveUser(data.name, data.email, data.type);
           })
           .catch((error) => console.error(error));
+        SignOut()
+          .then(() => {
+            toast.success("Registered successfully. Please login...");
+            navigate("/login");
+          })
+          .then(() => {});
       })
       .catch((error) => {
-        console.error(error);
         setError(error.message);
       });
     console.log(data);
@@ -70,7 +73,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("Successfully signed up");
+        toast.success("Successfully signed up.");
         googleUser(user.displayName, user.email);
       })
       .catch((error) => console.error(error));
