@@ -1,6 +1,4 @@
-.card.green {
-   background: linear-gradient(150deg, #39ef74, #4600f1 100%);
- }
+
 
  .custom-btn {
    width: 100%;
@@ -67,7 +65,7 @@
    width: 100%;
  }
  .btn-3 span:hover{
-    color: #fff;
+    color: #005C5A;
  }
  .btn-3 span:before,
  .btn-3 span:after {

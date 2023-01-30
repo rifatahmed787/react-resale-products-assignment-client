@@ -103,7 +103,7 @@ const CheckOutForm = ({ booking }) => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="px-5 py-16 card green dark:bg-black dark:border-white lg:w-1/3 md:w-1/3 sm:4/5 card-width  my-12 mx-auto"
+        className="px-5 py-16 card bg-[#70C5B9] dark:bg-black dark:border-white lg:w-1/3 md:w-1/3 sm:4/5 card-width  my-12 mx-auto"
       >
         <CardElement
           options={{

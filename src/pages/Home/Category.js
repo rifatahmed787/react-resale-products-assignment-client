@@ -30,14 +30,14 @@ const Category = () => {
 
   return (
     <div>
-      <h3 className="text-xl font-bold mt-5 margin-left lg:pl-10 dark:text-white">
+      <h3 className="text-xl font-bold text-[#005C5A] mt-5 margin-left text-center">
         Browse items by category
       </h3>
-      <div className="lg:flex justify-center mx-auto lg:space-x-7 sm:py-14 lg:py-20 ">
+      <div className="lg:flex justify-center mx-auto lg:space-x-16 sm:py-16 lg:py-16 ">
         {categories.map((category) => (
           <div key={category._id}>
             <Link to={`/products/${category.category_id}`}>
-              <div className="card w-64 h-64 my-5 mx-auto  margin-right transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-base-100 shadow-2xl image-full hover:bg-slate-400">
+              <div className="card w-64 h-64 my-5 mx-auto  margin-right transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 shadow-2xl image-full">
                 <figure>
                   <img src={category.img} alt="" className="" />
                 </figure>

@@ -6,6 +6,7 @@ import useAdmin from "../Hooks/useAdmin";
 import useBuyer from "../Hooks/useBuyer";
 import useSeller from "../Hooks/useSeller";
 import Navbar from "../pages/shared/Navbar";
+import png from "../assets/image/User_Avatar_2.png";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,29 @@ const DashboardLayout = () => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-[#149777] dark:bg-[#08221c] text-base-content">
             <li>
-              <Link to="/dashboard" />
+              {user?.photoURL ? (
+                <Link to="/dashboard">
+                  <div className="">
+                    <img
+                      src={user?.photoURL}
+                      alt=""
+                      className="w-16 h-16 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+                    />
+                  </div>
+                  <h3 className="text-lg ">{user?.displayName}</h3>
+                </Link>
+              ) : (
+                <Link to="/dashboard">
+                  <div className="">
+                    <img
+                      src={png}
+                      alt=""
+                      className="w-16 h-16 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+                    />
+                  </div>
+                  <h3 className="text-lg">{user?.displayName}</h3>
+                </Link>
+              )}
             </li>
             {isBuyer && (
               <>

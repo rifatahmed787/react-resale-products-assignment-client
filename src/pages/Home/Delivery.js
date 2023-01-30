@@ -8,7 +8,7 @@ import "./Category.css";
 
 const Delivery = () => {
   return (
-    <div className="p-6 py-12 card-width dark:bg-black shadow-lg rounded-lg lg:mx-20 md:mx-16   dark:text-white dark:border">
+    <div className="p-6 py-12 mt-3 bg-[#19BF96] card-width dark:bg-black shadow-lg rounded-lg lg:mx-20 md:mx-16   dark:text-white dark:border">
       <div className="container mx-auto ">
         <div className="lg:flex flex-col lg:flex-row items-center  justify-around">
           <div className="lg:flex items-center">

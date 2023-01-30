@@ -31,7 +31,7 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
 
   return (
     <div>
-      <div className="card green lg:card-side   shadow-xl rounded-md  dark:bg-black dark:border text-white mx-auto py-5">
+      <div className="card lg:card-side   shadow-xl rounded-md  dark:bg-black dark:border dark:text-white mx-auto py-5">
         <figure className="lg:pl-3 md:pl-3">
           <img
             src={img}

@@ -27,18 +27,18 @@ const AdvertiseProduct = () => {
   return (
     <div>
       {advertises && advertises.length > 0 ? (
-        <h2 className="text-2xl font-semibold pt-10 text-center text-purple-700 dark:text-white">
+        <h2 className="text-2xl font-bold pt-10 text-center text-[#005C5A] dark:text-white">
           Advertising Products
         </h2>
       ) : (
         <></>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5  my-5 lg:mx-4 md:mx-5 sm-width">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-3  my-5 lg:mx-4 md:mx-5 sm-width dark:text-white">
         {advertises &&
           advertises.map((advertise) => (
             <div
               key={advertise._id}
-              className="card green lg:card-side shadow-xl rounded-md  dark:bg-black dark:border text-white mx-auto py-5 mt-5"
+              className="card bg-white lg:card-side shadow-xl rounded-md  dark:bg-black dark:border mx-auto py-5 mt-5"
             >
               <figure className="lg:pl-3 md:pl-3">
                 <img

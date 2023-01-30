@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="mt-32 bg-[#CEEAFA] text-base-content border-t-2 border-[#149777]  divide-gray-800 dark:bg-[#2C3F46] dark:text-gray-100 mb-0">
+    <div className="mt-16 bg-[#005C5A] text-[#FFC745] border-t-2 border-[#149777]  divide-gray-800 dark:bg-[#2C3F46] dark:text-gray-100 mb-0">
       <footer className=" footer p-10 ">
         <div>
           <span className="footer-title">Services</span>
@@ -52,7 +52,7 @@ const Footer = () => {
           <span className="footer-title">Newsletter</span>
           <div className="form-control lg:w-80 md:w-80 input-width">
             <label className="label">
-              <span className="label-text dark:text-white">
+              <span className="label-text text-[#FFC745] dark:text-white">
                 Enter your email address
               </span>
             </label>
@@ -60,9 +60,9 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-bordered w-full dark:text-black"
+                className="input input-bordered w-full bg-[#005C5A] dark:text-black"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+              <button className="btn text-[#FFC745] bg-[#005C5A] hover:bg-[#005C5A] absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>

@@ -80,7 +80,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold dark:text-white text-center">
+      <h3 className="text-3xl mb-6 mt-5 ml-3 font-bold text-[#005C5A] dark:text-white text-center">
         All Users
       </h3>
       <div className="overflow-x-auto mx-3">

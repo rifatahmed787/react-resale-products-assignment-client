@@ -56,7 +56,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-6 mt-5 ml-3 font-semibold text-center dark:text-white">
+      <h3 className="text-3xl mb-6 mt-5 ml-3 font-bold text-[#005C5A] text-center dark:text-white">
         My Orders
       </h3>
       <div className="overflow-x-auto mx-3">
