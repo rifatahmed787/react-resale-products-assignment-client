@@ -1,10 +1,11 @@
 import React from "react";
+import "./Blog.css";
 
 const BlogDetails = ({ question, setBlogModal }) => {
   const { img, question: ques } = question;
   return (
     <div>
-      <div className="card w-72 h-96 bg-[#BCE1F9] dark:bg-black dark:border shadow-xl my-10 mx-auto">
+      <div className="card w-72 h-96 dark:bg-black dark:border shadow-xl my-10 mx-auto">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>
@@ -14,9 +15,9 @@ const BlogDetails = ({ question, setBlogModal }) => {
             <label
               htmlFor="blogDetails"
               onClick={() => setBlogModal(question)}
-              className="btn btn-primary w-full"
+              className="custom-btn-1 btn-1 mx-auto"
             >
-              See Answer
+              <span className="text-center">See Answer</span>
             </label>
           </div>
         </div>

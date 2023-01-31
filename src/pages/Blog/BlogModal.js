@@ -12,7 +12,10 @@ const BlogModal = ({ blogModal, setBlogModal }) => {
           </h3>
           <p className="py-4 dark:text-white">{answer}</p>
           <div className="modal-action">
-            <label htmlFor="blogDetails" className="btn">
+            <label
+              htmlFor="blogDetails"
+              className="btn btn-sm bg-[rgb(4,141,196)] hover:bg-[rgb(4,141,196)] border-none"
+            >
               Got it
             </label>
           </div>
