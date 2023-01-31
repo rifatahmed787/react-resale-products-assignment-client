@@ -25,7 +25,11 @@ const Category = () => {
   }
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return (
+      <div className="min-h-screen">
+        <Loading></Loading>;
+      </div>
+    );
   }
 
   return (

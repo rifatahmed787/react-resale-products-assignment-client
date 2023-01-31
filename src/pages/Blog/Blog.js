@@ -21,11 +21,15 @@ const Blog = () => {
   TitleHook("Blog");
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return (
+      <div className="min-h-screen">
+        <Loading></Loading>;
+      </div>
+    );
   }
   return (
-    <section>
-      <div className="grid lg:grid-cols-4 sm:grid-cols-1 ">
+    <section className="min-h-screen">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-1">
         {questions.map((question) => (
           <BlogDetails
             key={question._id}
