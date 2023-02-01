@@ -31,7 +31,7 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
 
   return (
     <div>
-      <div className="card lg:card-side   shadow-xl rounded-md  dark:bg-black dark:border dark:text-white mx-auto py-5">
+      <div className="card bg-white lg:card-side shadow-xl rounded-md  dark:bg-black dark:border mx-auto py-5 mt-5">
         <figure className="lg:pl-3 md:pl-3">
           <img
             src={img}
@@ -41,8 +41,9 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
         </figure>
         <div className="card-body">
           <div>
-            <h2 className="card-title flex items-center">
-              Seller Name: {sellerName}{" "}
+            <h2 className="flex items-center">
+              <span className="text-xl font-semibold">Seller Name:</span>{" "}
+              <span className="text-xl mr-2">{sellerName}</span>
               {users.map((user) => (
                 <div>
                   {user?.verified && (
@@ -52,20 +53,35 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
               ))}
             </h2>
           </div>
-          <h2 className="text-xl font-semibold tracking-wide">
-            Product Name: {name}
+          <h2>
+            <span className="text-xl font-semibold">Product Name:</span>{" "}
+            <span className="text-xl">{name}</span>
           </h2>
           <div className="lg:flex md:flex">
-            <p>Original Price: {originalPrice}</p>
-            <p>Resale Price: {resalePrice}</p>
+            <p>
+              <span className="font-semibold">Original Price:</span>{" "}
+              {originalPrice}
+            </p>
+            <p>
+              <span className="font-semibold">Resale Price:</span> {resalePrice}
+            </p>
           </div>
           <div className="lg:flex md:flex">
-            <p>Purchase year: {purchaseYear}</p>
-            <p>Post Date: {postedDate}</p>
+            <p>
+              <span className="font-semibold">Purchase year:</span>{" "}
+              {purchaseYear}
+            </p>
+            <p>
+              <span className="font-semibold">Post Date:</span> {postedDate}
+            </p>
           </div>
           <div className="lg:flex md:flex">
-            <p className="dark:text-gray-100">Location: {location}</p>
-            <p>Mobile: {mobile}</p>
+            <p className="dark:text-gray-100">
+              <span className="font-semibold">Location:</span> {location}
+            </p>
+            <p>
+              <span className="font-semibold">Mobile:</span> {mobile}
+            </p>
           </div>
           <label
             htmlFor="booking-modal"

@@ -43,7 +43,7 @@ const Swipper = () => {
       >
         {products.map((product) => (
           <SwiperSlide key={product._id}>
-            <div className="w-60 h-60">
+            <div className="w-56 h-56">
               <img src={product.img} alt="" />
               <h2 className="mt-1">{product.name}</h2>
             </div>

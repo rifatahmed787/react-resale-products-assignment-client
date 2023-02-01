@@ -38,7 +38,7 @@ const AdvertiseProduct = () => {
           advertises.map((advertise) => (
             <div
               key={advertise._id}
-              className="card bg-white lg:card-side shadow-xl rounded-md  dark:bg-black dark:border mx-auto py-5 mt-5"
+              className="card bg-white lg:card-side shadow-xl rounded-md gap-x-5 dark:bg-black dark:border mx-auto py-5 mt-5"
             >
               <figure className="lg:pl-3 md:pl-3">
                 <img
@@ -49,20 +49,35 @@ const AdvertiseProduct = () => {
               </figure>
               <div className="card-body">
                 <div className="flex items-center space-x-2">
-                  <h2 className="card-title mr-5">
-                    Seller Name: {advertise.sellerName}
-                  </h2>
+                  <p className=" mr-5">
+                    <span className="text-xl font-semibold">Seller Name:</span>{" "}
+                    <span className="text-xl">{advertise.sellerName}</span>
+                  </p>
                 </div>
-                <h2 className="text-xl font-semibold tracking-wide">
-                  Product Name: {advertise.name}
+                <h2>
+                  <span className="text-xl font-semibold">Product Name:</span>{" "}
+                  <span className="text-xl">{advertise.name}</span>
                 </h2>
                 <div className="lg:flex md:flex lg:space-x-4 md:space-x-4">
-                  <p>Original Price: {advertise.originalPrice}</p>
-                  <p>Resale Price: {advertise.resalePrice}</p>
+                  <p>
+                    {" "}
+                    <span className="font-semibold">Original Price:</span>{" "}
+                    {advertise.originalPrice}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Resale Price:</span>{" "}
+                    {advertise.resalePrice}
+                  </p>
                 </div>
                 <div className="lg:flex md:flex lg:space-x-3 md:space-x-3">
-                  <p>Purchase year: {advertise.purchaseYear}</p>
-                  <p>Post Date: {advertise.postedDate}</p>
+                  <p>
+                    <span className="font-semibold">Purchase year:</span>{" "}
+                    {advertise.purchaseYear}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Post Date:</span>{" "}
+                    {advertise.postedDate}
+                  </p>
                 </div>
                 <div>
                   {user?.email ? (
