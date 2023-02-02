@@ -14,24 +14,27 @@ const AddProduct = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const imageHostKey = process.env.REACT_APP_imagebb_key;
+  // const imageHostKey = process.env.REACT_APP_imagebb_key;
   // console.log(imageHostKey);
 
   const handleAddProduct = (data) => {
     const img = data.image[0];
     const formData = new FormData();
-    formData.append("image", img);
+    formData.append("file", img);
+    formData.append("upload_preset", "jujslbiy");
 
-    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    // const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    const url = "https://api.cloudinary.com/v1_1/dztlowlu0/image/upload";
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((imgData) => {
-        if (imgData.success) {
+        // console.log(imgData);
+        if (imgData.asset_id) {
           const products = {
-            img: imgData.data.url,
+            img: imgData.url,
             sellerName: data.sellerName,
             name: data.name,
             location: data.location,
