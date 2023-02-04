@@ -62,7 +62,7 @@ const Footer = () => {
                 placeholder="username@site.com"
                 className="input input-bordered w-full bg-[#005C5A] dark:text-black"
               />
-              <button className="btn text-[#FFC745] bg-[#005C5A] hover:bg-[#005C5A] absolute top-0 right-0 rounded-l-none">
+              <button className="btn text-[#FFC745] dark:text-white bg-[#005C5A] hover:bg-[#005C5A] absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>

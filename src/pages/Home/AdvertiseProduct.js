@@ -33,12 +33,12 @@ const AdvertiseProduct = () => {
       ) : (
         <></>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-3  my-5 lg:mx-4 md:mx-5 sm-width dark:text-white">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-3 my-5 lg:mx-4 md:mx-5 sm-width dark:text-white">
         {advertises &&
           advertises.map((advertise) => (
             <div
               key={advertise._id}
-              className="card bg-white lg:card-side shadow-xl rounded-md gap-x-5 dark:bg-black dark:border mx-auto py-5 mt-5"
+              className="card bg-white lg:card-side shadow-xl rounded-md gap-x-5 border-2 hover:border-[#057EF9] dark:border  dark:bg-black mx-auto py-5 mt-5"
             >
               <figure className="lg:pl-3 md:pl-3">
                 <img

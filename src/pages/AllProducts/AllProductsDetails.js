@@ -31,7 +31,7 @@ const AllProductsDetails = ({ product, setServiceModal }) => {
 
   return (
     <div>
-      <div className="card bg-white lg:card-side shadow-xl rounded-md  dark:bg-black dark:border mx-auto py-5 mt-5">
+      <div className="card bg-white lg:card-side shadow-xl rounded-md border-2 hover:border-[#057EF9] dark:bg-black dark:border mx-auto py-5 mt-5">
         <figure className="lg:pl-3 md:pl-3">
           <img
             src={img}

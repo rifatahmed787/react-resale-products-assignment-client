@@ -12,11 +12,11 @@ const AllProducts = () => {
     <section>
       <div className="text-center py-7">
         {products.length > 1 ? (
-          <h1 className="text-2xl font-semibold text-[#005C5A]">
+          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
             Total {products.length} products are avalilable.
           </h1>
         ) : (
-          <h1 className="text-2xl font-semibold text-[#005C5A]">
+          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
             Total {products.length} product is avalilable.
           </h1>
         )}

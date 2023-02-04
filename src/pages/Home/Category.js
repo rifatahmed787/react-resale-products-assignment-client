@@ -34,7 +34,7 @@ const Category = () => {
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-[#005C5A] mt-5 margin-left text-center">
+      <h3 className="text-xl font-bold text-[#005C5A] dark:text-white mt-5 margin-left text-center">
         Browse items by category
       </h3>
       <div className="lg:flex justify-center mx-auto lg:space-x-16 sm:py-16 lg:py-16 ">
