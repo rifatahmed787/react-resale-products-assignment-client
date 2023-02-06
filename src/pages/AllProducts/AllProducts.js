@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllProductsDetails from "./AllProductsDetails";
 import BookingModal from "./BookingModal";
@@ -8,8 +8,12 @@ const AllProducts = () => {
   const products = useLoaderData();
   const [serviceModal, setServiceModal] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section>
+    <section className="min-h-screen">
       <div className="text-center py-7">
         {products.length > 1 ? (
           <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">

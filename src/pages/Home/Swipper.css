@@ -22,7 +22,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #70C5B9;
+  background: #70c5b9;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -44,4 +44,15 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 640px) {
+  .custom-width{
+    width: 5rem;
+    height: 5rem;
+  }
+  .custom-height{
+    height: 12rem;
+  }
+
 }

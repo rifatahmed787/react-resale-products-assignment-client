@@ -229,6 +229,7 @@ const AddProduct = () => {
                 <option>macbook</option>
                 <option>hp</option>
                 <option>lenevo</option>
+                <option>dell</option>
               </select>
             </div>
 

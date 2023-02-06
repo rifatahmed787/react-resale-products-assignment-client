@@ -37,7 +37,7 @@ const Category = () => {
       <h3 className="text-xl font-bold text-[#005C5A] dark:text-white mt-5 margin-left text-center">
         Browse items by category
       </h3>
-      <div className="lg:flex justify-center mx-auto lg:space-x-16 sm:py-16 lg:py-16 ">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-center mx-auto sm:py-16 lg:py-16 ">
         {categories.map((category) => (
           <div key={category._id}>
             <Link to={`/products/${category.category_id}`}>

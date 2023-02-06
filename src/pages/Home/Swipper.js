@@ -23,18 +23,18 @@ const Swipper = () => {
   });
 
   return (
-    <div className="py-5  h-96">
+    <div className="py-5  lg:h-96 md:72 custom-height">
       <Swiper
         slidesPerView={3}
-        spaceBetween={30}
-        slidesPerGroup={3}
+        spaceBetween={10}
+        slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
           clickable: true,
         }}
         autoplay={{
-          delay: 2000,
+          delay: 1500,
           disableOnInteraction: false,
         }}
         navigation={true}
@@ -43,7 +43,7 @@ const Swipper = () => {
       >
         {products.map((product) => (
           <SwiperSlide key={product._id}>
-            <div className="w-56 h-56">
+            <div className="w-80 h-64 custom-width">
               <img src={product.img} alt="" />
               <h2 className="mt-1">{product.name}</h2>
             </div>
