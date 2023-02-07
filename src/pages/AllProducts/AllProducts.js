@@ -17,7 +17,7 @@ const AllProducts = () => {
       <div className="text-center py-7">
         {products.length > 1 ? (
           <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
-            Total {products.length} products are avalilable.
+            Total {products.length} products are available.
           </h1>
         ) : (
           <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
