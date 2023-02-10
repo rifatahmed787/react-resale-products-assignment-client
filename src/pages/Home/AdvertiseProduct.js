@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import Loading from "../shared/Loading";
 import "./Category.css";
+import "./AdvertiseProduct.css";
 
 const AdvertiseProduct = () => {
   const { user } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const AdvertiseProduct = () => {
   return (
     <div>
       {advertises && advertises.length > 0 ? (
-        <h2 className="text-2xl font-bold pt-10 text-center text-[#005C5A] dark:text-white">
+        <h2 className="text-2xl font-bold pt-10 font-serif text-center text-[#005C5A] dark:text-white underline underline-offset-8">
           Advertising Products
         </h2>
       ) : (
@@ -38,7 +39,7 @@ const AdvertiseProduct = () => {
           advertises.map((advertise) => (
             <div
               key={advertise._id}
-              className="card bg-white lg:card-side shadow-xl rounded-md gap-x-5 border-2 hover:border-[#057EF9] dark:border  dark:bg-black mx-auto py-5 mt-5"
+              className="card solution_cards_box  bg-[#FFFFFF] lg:card-side shadow-xl rounded-md gap-x-5 border-2 hover:border-[#057EF9] dark:border  dark:bg-black mx-auto py-5 mt-5"
             >
               <figure className="lg:pl-3 md:pl-3">
                 <img

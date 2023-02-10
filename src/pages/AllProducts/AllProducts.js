@@ -16,12 +16,12 @@ const AllProducts = () => {
     <section className="min-h-screen">
       <div className="text-center py-7">
         {products.length > 1 ? (
-          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
-            Total {products.length} products are available.
+          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white underline underline-offset-8">
+            Total {products.length} products are available
           </h1>
         ) : (
-          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white">
-            Total {products.length} product is avalilable.
+          <h1 className="text-2xl font-semibold text-[#005C5A] dark:text-white underline underline-offset-8">
+            Total {products.length} product is avalilable
           </h1>
         )}
       </div>

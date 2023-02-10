@@ -26,13 +26,10 @@ const Swipper = () => {
     <div className="py-5  lg:h-96 md:72 custom-height">
       <Swiper
         slidesPerView={3}
-        spaceBetween={10}
+        spaceBetween={15}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
         autoplay={{
           delay: 1500,
           disableOnInteraction: false,
