@@ -39,7 +39,10 @@ const Swipper = () => {
         className="mySwiper"
       >
         {products.map((product) => (
-          <SwiperSlide key={product._id}>
+          <SwiperSlide
+            key={product._id}
+            className="dark:bg-[#08221C] dark:text-white"
+          >
             <div className="w-80 h-64 custom-width">
               <img src={product.img} alt="" />
               <h2 className="mt-1">{product.name}</h2>

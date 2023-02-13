@@ -89,6 +89,7 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
 }
 
 
+
 @media only screen and (max-width: 640px) {
     .margin-left{
         display: flex;

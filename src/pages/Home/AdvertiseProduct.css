@@ -1,28 +1,4 @@
 
-  
-  .solution_cards_box:hover::before {
-    background: rgb(85 108 214 / 10%);
-  }
-  
-  .solution_cards_box:hover .solu_title h3,
-  .solution_cards_box:hover .solu_description p {
-    color: #fff;
-  }
-  
-  .solution_cards_box:before {
-    content: "";
-    position: absolute;
-    background: rgb(85 108 214 / 5%);
-    width: 170px;
-    height: 400px;
-    z-index: -1;
-    transform: rotate(42deg);
-    right: -56px;
-    top: -23px;
-    border-radius: 35px;
-  }
-  
   .solution_cards_box:hover {
-    background: #fff !important;
     color: #309df0;
   }

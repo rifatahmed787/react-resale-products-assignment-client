@@ -42,7 +42,9 @@ const DashboardLayout = () => {
                       className="w-16 h-16 mx-auto rounded-full dark:bg-gray-500 aspect-square"
                     />
                   </div>
-                  <h3 className="text-lg ">{user?.displayName}</h3>
+                  <h3 className="text-lg dark:text-white">
+                    {user?.displayName}
+                  </h3>
                 </Link>
               ) : (
                 <Link to="/dashboard">
@@ -53,7 +55,9 @@ const DashboardLayout = () => {
                       className="w-16 h-16 mx-auto rounded-full dark:bg-gray-500 aspect-square"
                     />
                   </div>
-                  <h3 className="text-lg">{user?.displayName}</h3>
+                  <h3 className="text-lg dark:text-white">
+                    {user?.displayName}
+                  </h3>
                 </Link>
               )}
             </li>

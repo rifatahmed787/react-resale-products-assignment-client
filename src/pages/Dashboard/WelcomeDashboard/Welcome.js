@@ -7,7 +7,7 @@ const Welcome = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="flex justify-center items-center mt-16 px-5">
-      <div className="flex flex-col sm:w-11/12 lg:w-1/2 bg-[#70C5B9] justify-center p-6 shadow-2xl rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex flex-col sm:w-11/12 lg:w-1/2 bg-[#70C5B9] justify-center p-6 shadow-2xl rounded-xl sm:px-12 dark:bg-[#08221C] dark:text-gray-100">
         <h2 className="text-2xl text-center mb-5">Your profile</h2>
         {user?.photoURL ? (
           <>
