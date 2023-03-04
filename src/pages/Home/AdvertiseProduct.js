@@ -41,7 +41,6 @@ const AdvertiseProduct = () => {
             <div
               key={advertise._id}
               className="card solution_cards_box w-11/12 bg-[#FFFFFF] h-[500px] shadow-xl rounded-md gap-x-5 border-2 hover:border-[#057EF9] dark:border  dark:bg-black mx-auto py-5 mt-5"
-              data-aos="fade-up"
             >
               <figure className="px-5 pt-5 mb-5">
                 <img
